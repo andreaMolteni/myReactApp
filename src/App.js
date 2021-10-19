@@ -1,15 +1,34 @@
 import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addTodo } from './features/todos/todoSlice';
+import { addTodo, fetchTodos } from './features/todos/todoSlice';
+import { filterTodo } from './features/todos/filterSlice';
 import Todos from './features/todos/todos';
+import FilterTodos from './features/todos/filterTodo';
 import './App.css';
 
 function App() {  // dispatch è tra le prorprietà del componente App
 
   // const todos = [];
-
-  const todos = useSelector(state => state.todos);
   const dispatch = useDispatch()
+  // dispatch(fetchTodos());
+
+  let todos = useSelector(state => state.todos);
+  const activeFilter = 'ALL';
+  const filter = useSelector(state => state.filter);
+
+  todos = todos.filter(todo => {
+    switch (filter) {
+      case 'ALL':
+        return true;
+      case 'COMPLETED':
+        return todo.completed;
+      case 'TODO':
+        return !todo.completed;
+      default:
+        return true;
+    }
+  })
+
 
   // const [todos, setTodos] = useState([]);
   const manageAddTodoClick = (e) => {
@@ -25,6 +44,10 @@ function App() {  // dispatch è tra le prorprietà del componente App
     todoEl.current.value = '';
   }
 
+  const onFilterTodo = (filter) => {
+    console.log(filter);
+    dispatch(filterTodo(filter));
+  }
   // useEffect(() => {
   //   setTodos(initTodos)
   //   return () => {
@@ -38,7 +61,7 @@ function App() {  // dispatch è tra le prorprietà del componente App
     <div className="App container-fluid">
       <div className="row d-flex justify-content-center  text-center">
         <h1>MY "TO DO" LIST:</h1>
-          {/* <AddTodo/> */}
+        {/* <AddTodo/> */}
         <form>
           <div className="row d-flex justify-content-center  text-center">
             <div className="col-md-6">
@@ -55,7 +78,8 @@ function App() {  // dispatch è tra le prorprietà del componente App
             <div className="card-header">
               TO DO:
             </div>
-              <Todos todos={todos}/>
+            <Todos todos={todos} />
+            <FilterTodos onFilter={onFilterTodo} filter={filter} />
           </div>
         </div>
       </div>

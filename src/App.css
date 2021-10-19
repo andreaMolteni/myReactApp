@@ -2,6 +2,9 @@
 body {
   margin-top: 70px;
 }
+.filter-todo {
+  width: 110px;
+}
 /* .todos-cards-wrapper{
   position: relative;
   left: 50%;
