@@ -1,34 +1,22 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addTodo, fetchTodos } from './features/todos/todoSlice';
+import { addTodo, fetchTodos  } from './features/todos/todoSlice';
 import { filterTodo } from './features/todos/filterSlice';
 import Todos from './features/todos/todos';
 import FilterTodos from './features/todos/filterTodo';
 import './App.css';
 
 function App() {  // dispatch è tra le prorprietà del componente App
-
+  const filter = useSelector(state => state.filter);
   // const todos = [];
   const dispatch = useDispatch()
-  // dispatch(fetchTodos());
-
-  let todos = useSelector(state => state.todos);
-  const activeFilter = 'ALL';
-  const filter = useSelector(state => state.filter);
-
-  todos = todos.filter(todo => {
-    switch (filter) {
-      case 'ALL':
-        return true;
-      case 'COMPLETED':
-        return todo.completed;
-      case 'TODO':
-        return !todo.completed;
-      default:
-        return true;
+  useEffect(() => {
+    dispatch(fetchTodos());
+    return () => {
     }
-  })
-
+  }, [dispatch])
+  
+  let todos = useSelector(state => state.todos);
 
   // const [todos, setTodos] = useState([]);
   const manageAddTodoClick = (e) => {

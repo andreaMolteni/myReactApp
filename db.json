@@ -1,33 +1,48 @@
 {
   "todos": [
-      {
-          "name": "Studiare React",
-          "dueDate": "11/10/2021",
-          "user_id": 1,
-          "id": 1,
-          "completed": false
-      },
-      {
-          "name": "Studiare Symfony",
-          "dueDate": "11/10/2021",
-          "user_id": 2,
-          "id": 2,
-          "completed": false
-      },
-      {
-          "name": "Studiare Docker",
-          "dueDate": "11/10/2021",
-          "user_id": 3,
-          "id": 3,
-          "completed": true
-      },
-      {
-          "name": "Studiare AWS Services",
-          "dueDate": "11/10/2021",
-          "user_id": 4,
-          "id": 4,
-          "completed": true
-      }
+    {
+      "name": "Studiare Docker",
+      "dueDate": "11/10/2021",
+      "user_id": 3,
+      "id": 3,
+      "completed": true
+    },
+    {
+      "name": "Studiare AWS Services",
+      "dueDate": "11/10/2021",
+      "user_id": 4,
+      "id": 4,
+      "completed": true
+    },
+    {
+      "name": "approfondire Symfony e Laravel",
+      "dueDate": "3/11/2021",
+      "user_id": 5,
+      "id": 5,
+      "completed": false
+    },
+    {
+      "name": "Prova2",
+      "dueDate": "31/10/2021",
+      "user_id2": 3,
+      "completed": false,
+      "id": 6
+    },
+    {
+      "name": "sfgj",
+      "dueDate": "3/11/2021",
+      "user_id": null,
+      "id": 7,
+      "completed": true
+    },
+    {
+      "name": "new to do",
+      "dueDate": "3/11/2021",
+      "user_id": null,
+      "id": 8
+    }
   ],
-  "filter": ["ALL"]
+  "filter": [
+    "ALL"
+  ]
 }
