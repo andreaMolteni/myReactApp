@@ -1,5 +1,4 @@
 export const addTodo = (name,todos) => {
-  console.log('qua:',todos)
   if (todos.length > 0){
       var newId = todos.map(e => e.user_id).reduce((p, c) => Math.max(p, c)) + 1;
     }

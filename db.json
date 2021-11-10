@@ -40,9 +40,22 @@
       "dueDate": "3/11/2021",
       "user_id": null,
       "id": 8
+    },
+    {
+      "name": "Prova",
+      "dueDate": "21/10/2021",
+      "user_id2": 3,
+      "completed": false,
+      "id": 9
+    },
+    {
+      "name": "pippo",
+      "dueDate": "10/11/2021",
+      "user_id": null,
+      "id": 10
     }
   ],
-  "filter": [
-    "ALL"
-  ]
+  "filter": {
+    "type": "COMPLETED"
+  }
 }

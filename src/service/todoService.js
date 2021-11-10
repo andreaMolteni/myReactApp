@@ -8,7 +8,21 @@ export const getFilter = () => {
     return fetch(FILTER_URL).then(res => res.json()).then( res => res );
 }
 
-export const removeTodos = (todo) => {
+export const changeFilter = filter => {
+    console.log('changeFilter: ',filter);
+    return fetch(
+        FILTER_URL,
+        {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ type: 'ALL'})
+        }
+        ).then(res => res.json()).then( res => res );
+}
+
+export const removeTodos = todo => {
     return fetch(
         TODO_URL + '/' + todo.id, 
         {
@@ -17,7 +31,7 @@ export const removeTodos = (todo) => {
     ).then( res => res.json() ).then( res => res );
 }
 
-export const newTodo = (todo) => {
+export const newTodo = todo => {
     return fetch(
         TODO_URL, 
         {
@@ -30,7 +44,7 @@ export const newTodo = (todo) => {
     ).then( res => res.json() ).then( res => res );
 }
 
-export const changeCopleted = (todo) => {
+export const changeCopleted = todo => {
     return fetch(
         TODO_URL + '/' + todo.id, 
         {

@@ -8,10 +8,11 @@ export const filterSlice = createSlice(
             filterTodo(state, action){
               return action.payload;
             },
-        }
+        },
     }
 );
 
+// const { reducer } = filterSlice;
 const {actions, reducer } = filterSlice;
 export const {filterTodo} = actions;
 export default reducer

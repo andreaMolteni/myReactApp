@@ -47,7 +47,6 @@ export const todoSlice = createSlice({
             })
     }
 });
-console.log({todoSlice})
 // const { actions, reducer } = todoSlice;
 const { reducer } = todoSlice;
 // export const { addTodo, removeTodo, toggleTodo } = actions;

@@ -13,10 +13,10 @@ import filterReducer from '../features/todos/filterSlice';
 //la riscrivo con meno codice
 const myLog = store => nextMiddleware => action => {
   // store.dispatch({type: 'INIT_MYLOG', payload: null});
-  console.log({
-    actionType: action.type,
-    actionPayload: action.payload
-  });
+  /* console.log({
+     actionType: action.type,
+     actionPayload: action.payload
+   });*/
   return nextMiddleware(action);
 }
 

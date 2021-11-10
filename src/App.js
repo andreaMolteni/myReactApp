@@ -11,17 +11,16 @@ function App() {  // dispatch è tra le prorprietà del componente App
   // const todos = [];
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(fetchTodos());
+    dispatch(fetchTodos(filter));
     return () => {
     }
-  }, [dispatch])
+  }, [dispatch, filter])
   
   let todos = useSelector(state => state.todos);
 
   // const [todos, setTodos] = useState([]);
   const manageAddTodoClick = (e) => {
     e.preventDefault();
-    console.log(todos);
     var newId = todos.map(e => e.user_id).reduce((p, c) => Math.max(p, c)) + 1;
     const newTodo = {
       name: todoEl.current.value,
@@ -33,7 +32,6 @@ function App() {  // dispatch è tra le prorprietà del componente App
   }
 
   const onFilterTodo = (filter) => {
-    console.log(filter);
     dispatch(filterTodo(filter));
   }
   // useEffect(() => {

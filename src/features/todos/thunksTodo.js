@@ -2,12 +2,12 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { filterTodo } from './filterSlice';
 import { getTodos, getFilter, removeTodos, newTodo, changeCopleted } from '../../service/todoService';
 
-export const fetchTodos = createAsyncThunk('todos/fetchTodos', async (data = null, {dispatch}) => {
+export const fetchTodos = createAsyncThunk('todos/fetchTodos', async (filter, {dispatch}) => {
     // Per parallelizzare le Promise
-    let [ todos, filter ] = await Promise.all([ getTodos(), getFilter() ]);
-    dispatch(filterTodo(filter[0]));
-    todos = todos.filter(todo => {
-        switch (filter[0]) {
+    let [ todos] = await Promise.all([ getTodos(), getFilter() ]);
+    dispatch(filterTodo(filter));
+    todos = todos.filter(todo => { 
+        switch (filter) {
           case 'ALL':
             return true;
           case 'COMPLETED':
@@ -18,13 +18,11 @@ export const fetchTodos = createAsyncThunk('todos/fetchTodos', async (data = nul
             return true;
         }
       })
-    console.log({todos, filter});
     return todos;
 })
 
 export const removeTodo = createAsyncThunk('todos/removeTodos', async (todo, {dispatch}) => {
-  let res = await removeTodos(todo);
-  return todo;
+  return await removeTodos(todo);
 })
 
 export const addTodo = createAsyncThunk('todos/addTodos', async (todo, {dispatch}) => {
