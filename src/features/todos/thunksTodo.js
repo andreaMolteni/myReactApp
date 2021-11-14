@@ -22,7 +22,8 @@ export const fetchTodos = createAsyncThunk('todos/fetchTodos', async (filter, {d
 })
 
 export const removeTodo = createAsyncThunk('todos/removeTodos', async (todo, {dispatch}) => {
-  return await removeTodos(todo);
+  await removeTodos(todo);
+  return todo;
 })
 
 export const addTodo = createAsyncThunk('todos/addTodos', async (todo, {dispatch}) => {

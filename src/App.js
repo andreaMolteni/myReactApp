@@ -5,10 +5,13 @@ import { filterTodo } from './features/todos/filterSlice';
 import Todos from './features/todos/todos';
 import ErrorBoundary from './components/ErrorBoundary';
 import FilterTodos from './features/todos/filterTodo';
+import AddTodoForm from './features/todos/addTodoForm';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 
 function App() {  // dispatch è tra le prorprietà del componente App
   const filter = useSelector(state => state.filter);
+  let todos = useSelector(state => state.todos);
   // const todos = [];
   const dispatch = useDispatch()
   useEffect(() => {
@@ -21,7 +24,7 @@ function App() {  // dispatch è tra le prorprietà del componente App
     }
   }, [dispatch, filter])
   
-  let todos = useSelector(state => state.todos);
+  
 
   // const [todos, setTodos] = useState([]);
   const manageAddTodoClick = (e) => {
@@ -52,8 +55,8 @@ function App() {  // dispatch è tra le prorprietà del componente App
     <div className="App container-fluid">
       <div className="row d-flex justify-content-center  text-center">
         <h1>MY "TO DO" LIST:</h1>
-        {/* <AddTodo/> */}
-        <form>
+        <AddTodoForm todoEl={todoEl} manageAddTodoClick={manageAddTodoClick}/>
+        {/* <form>
           <div className="row d-flex justify-content-center  text-center">
             <div className="col-md-6">
               <div className="form-groupd d-flex m-1">
@@ -63,7 +66,7 @@ function App() {  // dispatch è tra le prorprietà del componente App
               </div>
             </div>
           </div>
-        </form>
+        </form> */}
         <div className="col-md-6">
           <div className="card todos-cards-wrapper text-center">
             <div className="card-header">

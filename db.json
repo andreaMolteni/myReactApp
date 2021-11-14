@@ -5,14 +5,14 @@
       "dueDate": "11/10/2021",
       "user_id": 3,
       "id": 3,
-      "completed": true
+      "completed": false
     },
     {
       "name": "Studiare AWS Services",
       "dueDate": "11/10/2021",
       "user_id": 4,
       "id": 4,
-      "completed": true
+      "completed": false
     },
     {
       "name": "approfondire Symfony e Laravel",
@@ -20,13 +20,6 @@
       "user_id": 5,
       "id": 5,
       "completed": false
-    },
-    {
-      "name": "Prova2",
-      "dueDate": "31/10/2021",
-      "user_id2": 3,
-      "completed": true,
-      "id": 6
     },
     {
       "name": "sfgj",
@@ -47,12 +40,6 @@
       "user_id2": 3,
       "completed": false,
       "id": 9
-    },
-    {
-      "name": "pippo",
-      "dueDate": "10/11/2021",
-      "user_id": null,
-      "id": 10
     }
   ],
   "filter": {
