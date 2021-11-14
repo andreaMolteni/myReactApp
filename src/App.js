@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addTodo, fetchTodos  } from './features/todos/todoSlice';
 import { filterTodo } from './features/todos/filterSlice';
 import Todos from './features/todos/todos';
+import ErrorBoundary from './components/ErrorBoundary';
 import FilterTodos from './features/todos/filterTodo';
 import './App.css';
 
@@ -11,7 +12,11 @@ function App() {  // dispatch è tra le prorprietà del componente App
   // const todos = [];
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(fetchTodos(filter));
+    // Con l'unwrap è possibile avere accesso alla Promise per poi risolverla con il .them e raccogliere eventualmente l'errore nel catch
+    dispatch(fetchTodos(filter)).unwrap().then( res => {
+    }).catch( error => {
+      console.log({error: error.message});
+    });
     return () => {
     }
   }, [dispatch, filter])
@@ -64,7 +69,9 @@ function App() {  // dispatch è tra le prorprietà del componente App
             <div className="card-header">
               TO DO:
             </div>
-            <Todos todos={todos} />
+            <ErrorBoundary>
+              <Todos todos={todos} />
+            </ErrorBoundary>
             <FilterTodos onFilter={onFilterTodo} filter={filter} />
           </div>
         </div>
