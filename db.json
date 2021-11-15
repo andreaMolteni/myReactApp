@@ -12,14 +12,14 @@
       "dueDate": "11/10/2021",
       "user_id": 4,
       "id": 4,
-      "completed": false
+      "completed": true
     },
     {
       "name": "approfondire Symfony e Laravel",
       "dueDate": "3/11/2021",
       "user_id": 5,
       "id": 5,
-      "completed": false
+      "completed": true
     },
     {
       "name": "sfgj",
@@ -40,6 +40,13 @@
       "user_id2": 3,
       "completed": false,
       "id": 9
+    },
+    {
+      "name": "gdsf",
+      "dueDate": "16/11/2021",
+      "user_id": null,
+      "id": 10,
+      "completed": false
     }
   ],
   "filter": {
