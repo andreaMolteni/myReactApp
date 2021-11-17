@@ -11,6 +11,22 @@ import './App.css';
 function App() {  // dispatch è tra le prorprietà del componente App
   const filter = useSelector(state => state.filter);
   let todos = useSelector(state => state.todos);
+
+  const lists = [
+    {
+      "name": "work",
+      "created_at": "2021-11-17 23:45",
+      "user_id": 1,
+      "id": 0
+    },
+    {
+      "name": "home",
+      "created_at": "2021-11-17 23:45",
+      "user_id": 1,
+      "id": 1
+    }
+  ]
+
   // const todos = [];
   const dispatch = useDispatch()
   useEffect(() => {
@@ -52,9 +68,9 @@ function App() {  // dispatch è tra le prorprietà del componente App
 
   return (
     <>
-    <BrowserRouter>
-      <Header />
-      <div className="App container-fluid">
+      <BrowserRouter>
+        <Header />
+        <div className="App container-fluid">
           <div className="row d-flex justify-content-center  text-center">
             <Routes>
               <Route path="/todos" element={
@@ -67,14 +83,14 @@ function App() {  // dispatch è tra le prorprietà del componente App
                 />
               }
               />
-              <Route exact path="/lists" element={<MyLists/>}/>
-              <Route path="/" element={<MyLists/>} />
-              <Route path="/home" element={<MyLists/>} />
+              <Route exact path="/lists" element={<MyLists />} />
+              <Route path="/" element={<MyLists lists={lists}/>} />
+              <Route path="/home" element={<MyLists lists={lists}/>} />
               {/* <Route path="/" element={<Navigate replace to="/lists" />} />
               <Route path="/home" element={<Navigate replace to="/lists" />} /> */}
             </Routes>
           </div>
-      </div>
+        </div>
       </BrowserRouter>
     </>
   );
