@@ -3,56 +3,106 @@
     {
       "name": "Studiare Docker",
       "dueDate": "11/10/2021",
-      "user_id": 3,
+      "user_id": 1,
       "id": 3,
       "completed": false
     },
     {
       "name": "Studiare AWS Services",
       "dueDate": "11/10/2021",
-      "user_id": 4,
+      "user_id": 1,
       "id": 4,
       "completed": true
     },
     {
       "name": "approfondire Symfony e Laravel",
       "dueDate": "3/11/2021",
-      "user_id": 5,
+      "user_id": 1,
       "id": 5,
       "completed": true
     },
     {
       "name": "sfgj",
       "dueDate": "3/11/2021",
-      "user_id": null,
+      "user_id": 1,
       "id": 7,
       "completed": true
     },
     {
       "name": "new to do",
       "dueDate": "3/11/2021",
-      "user_id": null,
+      "user_id": 1,
       "id": 8
     },
     {
       "name": "Prova",
       "dueDate": "21/10/2021",
-      "user_id2": 3,
+      "user_id": 1,
       "completed": false,
       "id": 9
     },
     {
       "name": "gdsf",
       "dueDate": "16/11/2021",
-      "user_id": null,
+      "user_id": 1,
       "id": 10,
       "completed": false
     },
     {
       "name": "prova 3",
       "dueDate": "17/11/2021",
-      "user_id": null,
+      "user_id": 1,
       "id": 11
+    },
+    {
+      "name": "fafadgfd",
+      "dueDate": "17/11/2021",
+      "user_id": 1,
+      "id": 12
+    },
+    {
+      "name": "adgads",
+      "dueDate": "17/11/2021",
+      "user_id": 1,
+      "id": 13
+    },
+    {
+      "name": "adgadg",
+      "dueDate": "17/11/2021",
+      "user_id": 1,
+      "id": 14
+    },
+    {
+      "name": "adg",
+      "dueDate": "17/11/2021",
+      "user_id": 1,
+      "id": 15
+    },
+    {
+      "name": "adgdg",
+      "dueDate": "17/11/2021",
+      "user_id": 1,
+      "id": 16
+    },
+    {
+      "name": "adgadg",
+      "dueDate": "17/11/2021",
+      "user_id": 1,
+      "id": 17
+    }
+  ],
+  "list": [
+    {
+      "name": "work",
+      "created_at": "2021-11-17 23:45",
+      "user_id": 1,
+      "id": 0
+    },
+    {
+      "name": "home",
+      "created_at": "2021-11-17 23:45",
+      "user_id": 1,
+      "id": 1
     }
   ],
   "filter": {
