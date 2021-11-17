@@ -4,7 +4,7 @@ import ErrorBoundary from '../../components/ErrorBoundary';
 import FilterTodos from '../../features/todos/filterTodo';
 import AddTodoForm from '../../features/todos/addTodoForm';
 
-export default function MyTodos({todoEl,manageAddTodoClick,todos,onFilterTodo,filter}){
+export default function MyTodos({todoEl,manageAddTodoClick,todos,onFilter,filter}){
     return <>
         <h1>MY "TO DO" LIST:</h1>
         <AddTodoForm todoEl={todoEl} manageAddTodoClick={manageAddTodoClick} />
@@ -16,7 +16,7 @@ export default function MyTodos({todoEl,manageAddTodoClick,todos,onFilterTodo,fi
                 <ErrorBoundary>
                     <Todos todos={todos} />
                 </ErrorBoundary>
-                <FilterTodos onFilter={onFilterTodo} filter={filter} /> 
+                <FilterTodos onFilter={onFilter} filter={filter} /> 
             </div>
         </div>
     </>

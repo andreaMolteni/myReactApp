@@ -58,7 +58,8 @@ function App() {  // dispatch è tra le prorprietà del componente App
               <MyTodos
                 todoEl={todoEl}
                 manageAddTodoClick={manageAddTodoClick}
-                todos={todos} onFilter={onFilterTodo}
+                todos={todos} 
+                onFilter={onFilterTodo}
                 filter={filter}
               />
             }
