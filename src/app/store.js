@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import todosReducer from '../features/todos/todoSlice';
 import filterReducer from '../features/todos/filterSlice';
-
+import { listsApi } from '../service/listService';
 // const myLog = store => {
 //   // nextMiddleware è il prossimo middleware
 //   return myDispatch(nextMiddleware) {
@@ -24,6 +24,8 @@ export const store = configureStore({
   reducer: {
     todos: todosReducer,
     filter: filterReducer,
+    // lists: listsApi.reducer
+    [listsApi.reducerPath]: listsApi.reducer
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat(myLog)
 });
