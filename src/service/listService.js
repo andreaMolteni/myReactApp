@@ -1,17 +1,25 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { APIURL } from '../config'
+import { LIST_URL} from '../config'
 
 // Define a service using a base URL and expected endpoints
 export const listsApi = createApi({
     reducerPath: 'lists',
     baseQuery: fetchBaseQuery({
-        baseUrl: APIURL
+        baseUrl: LIST_URL
     }),
     endpoints: builder => (
         {
             getLists: builder.query(
                 {
-                    query: () => `lists`,
+                    query: () => '',
+                }
+            ),
+            deleteList: builder.mutation(
+                {
+                    query: (id) => ({
+                        url: `/${id}`,
+                        method: 'DELETE'
+                    })
                 }
             ),
         }
@@ -20,4 +28,4 @@ export const listsApi = createApi({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetListsQuery } = listsApi;
+export const { useGetListsQuery, useDeleteListMutation } = listsApi;

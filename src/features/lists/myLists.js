@@ -1,6 +1,7 @@
-import Lists from "./Lists"
+import React from 'react';
+import Lists from "./Lists";
 
-export default function MyLists({lists}) {
+export default function MyLists() {
     return <>
         <h1>MY "TO DO" LISTS:</h1>
         {/* <AddTodoForm todoEl={todoEl} manageAddTodoClick={manageAddTodoClick} /> */}
@@ -10,7 +11,7 @@ export default function MyLists({lists}) {
                     TO DO:
                 </div>
                 {/* <ErrorBoundary> */}
-                    <Lists lists={lists} />
+                <Lists/>
                 {/* </ErrorBoundary> */}
                 {/* <FilterTodos onFilter={onFilterTodo} filter={filter} />  */}
             </div>
