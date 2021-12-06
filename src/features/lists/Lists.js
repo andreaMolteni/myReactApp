@@ -35,7 +35,7 @@ export default function Lists() {
         }
     }, [error, isFetching])
 
-    manageListRemotion = id => {
+    const manageListRemotion = id => {
         removeList(id).unwrap().then(() => {
             reloadLists();
         }).catch(err => {
@@ -43,11 +43,10 @@ export default function Lists() {
         })
     }
 
-    }
 
     return <ul className="list-group list-group-flush">
         {lists.map(list => <List
-            onRemoveList={ id => manageListRemotion(id) }
+            onRemoveList={ id =>manageListRemotion(id)}
             listItem={list}
             key={list.id}
         />)}
