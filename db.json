@@ -55,60 +55,39 @@
       "id": 11
     },
     {
-      "name": "fafadgfd",
-      "dueDate": "17/11/2021",
-      "user_id": 1,
-      "id": 12
+      "name": "pluto",
+      "dueDate": "10/12/2021",
+      "user_id": 2,
+      "id": 12,
+      "completed": true
     },
     {
-      "name": "adgads",
-      "dueDate": "17/11/2021",
-      "user_id": 1,
+      "name": "bravo",
+      "dueDate": "10/12/2021",
+      "user_id": 3,
       "id": 13
-    },
-    {
-      "name": "adgadg",
-      "dueDate": "17/11/2021",
-      "user_id": 1,
-      "id": 14
-    },
-    {
-      "name": "adg",
-      "dueDate": "17/11/2021",
-      "user_id": 1,
-      "id": 15
-    },
-    {
-      "name": "adgdg",
-      "dueDate": "17/11/2021",
-      "user_id": 1,
-      "id": 16
-    },
-    {
-      "name": "adgadg",
-      "dueDate": "17/11/2021",
-      "user_id": 1,
-      "id": 17
     }
   ],
   "lists": [
     {
       "name": "work",
-      "created_at": "2021-11-17 23:45",
-      "user_id": 1,
-      "id": 0
-    },
-    {
-      "name": "home",
-      "created_at": "2021-11-17 23:45",
       "user_id": 1,
       "id": 1
     },
     {
       "name": "teaching",
-      "created_at": "2021-11-17 23:45",
       "user_id": 1,
       "id": 2
+    },
+    {
+      "name": "home",
+      "user_id": 1,
+      "id": 3
+    },
+    {
+      "name": "prova",
+      "user_id": 1,
+      "id": 4
     }
   ],
   "filter": {

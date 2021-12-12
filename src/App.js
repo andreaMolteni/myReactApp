@@ -6,43 +6,15 @@ import MyLists from './features/lists/myLists';
 import Header from './components/Header';
 import MyTodos from './features/todos/myTodos';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useGetListsQuery } from './service/listService';
 import './App.css';
 
 function App() {  // dispatch è tra le prorprietà del componente App
   const filter = useSelector(state => state.filter);
   let todos = useSelector(state => state.todos);
 
-  // const lists = [
-  //   {
-  //     "name": "work",
-  //     "created_at": "2021-11-17 23:45",
-  //     "user_id": 1,
-  //     "id": 0
-  //   },
-  //   {
-  //     "name": "home",
-  //     "created_at": "2021-11-17 23:45",
-  //     "user_id": 1,
-  //     "id": 1
-  //   }
-  // ]
-
-  // const todos = [];
   const dispatch = useDispatch()
 
-  // const {data:lists = [], error, isLoading} = useGetList();
-  const {data: lists = [], error, isLoading} = useGetListsQuery();
-
-
   useEffect(() => {
-    if(error){
-      console.log(error);
-    }
-  
-    if(isLoading){
-      console.log(isLoading);
-    }
     // Con l'unwrap è possibile avere accesso alla Promise per poi risolverla con il .them e raccogliere eventualmente l'errore nel catch
     dispatch(fetchTodos(filter)).unwrap().then(res => {
     }).catch(error => {
@@ -50,7 +22,7 @@ function App() {  // dispatch è tra le prorprietà del componente App
     });
     return () => {
     }
-  }, [dispatch, filter, error, isLoading])
+  }, [dispatch, filter])
 
 
 
@@ -96,9 +68,9 @@ function App() {  // dispatch è tra le prorprietà del componente App
                 />
               }
               />
-              <Route exact path="/lists" element={<MyLists lists={lists} />} />
-              <Route path="/" element={<MyLists lists={lists}/>} />
-              <Route path="/home" element={<MyLists lists={lists}/>} />
+              <Route exact path="/lists" element={<MyLists/>} />
+              <Route path="/" element={<MyLists/>} />
+              <Route path="/home" element={<MyLists/>} />
               {/* <Route path="/" element={<Navigate replace to="/lists" />} />
               <Route path="/home" element={<Navigate replace to="/lists" />} /> */}
             </Routes>

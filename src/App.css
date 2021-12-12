@@ -9,6 +9,10 @@ body {
 .filter-todo {
   width: 12 0px;
 }
+.add-ele{
+  width: 120px;
+  padding: 1px;
+}
 /* .todos-cards-wrapper{
   position: relative;
   left: 50%;
