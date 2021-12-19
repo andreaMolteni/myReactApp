@@ -4,12 +4,13 @@ import AddListForm from '../../components/addElementForm';
 import { useAddListMutation } from '../../service/listService';
 
 export default function MyLists() {
+    
     const listEl = useRef('');
+
     const [addList, {
         isLoading: isAdding,
         isSuccess: isAddSuccesess,
         error: addError,
-        isAddError
     }] = useAddListMutation();
 
     const manageClick = e => {
@@ -22,7 +23,13 @@ export default function MyLists() {
         if (isAddSuccesess) {
             listEl.current.value = '';
         }
-    }, [isAddSuccesess])
+        if (isAdding) {
+            console.log('is adding a list...');
+        }
+        if (addError) {
+            console.log(addError);
+        }
+    }, [isAddSuccesess, isAdding, addError])
 
     return <>
         <h1>MY "TO DO" LISTS:</h1>
@@ -38,7 +45,7 @@ export default function MyLists() {
                     TO DO:
                 </div>
                 {/* <ErrorBoundary> */}
-                <Lists />
+                <Lists/>
                 {/* </ErrorBoundary> */}
                 {/* <FilterTodos onFilter={onFilterTodo} filter={filter} />  */}
             </div>

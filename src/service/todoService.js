@@ -1,3 +1,74 @@
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { TODO_URL } from '../config'
+
+// Define a service using a base URL and expected endpoints
+export const todosApi = createApi({
+    reducerPath: 'todos',
+    tagTypes: ['TODOS'],
+    baseQuery: fetchBaseQuery({
+        baseUrl: TODO_URL
+    }),
+    endpoints: builder => (
+        {
+            getTodos: builder.query(
+                {
+                    query: () => '',
+                    // providesTags: ['LIST'] // così restituisce tutta la lista 
+                    providesTags: (result, error) => {
+                        if(error) {
+                            return [{type: 'TODOS'}];
+                        }
+                        return result.map( ele => ({type: 'TODOS', id: ele.id}));
+                    }
+                }
+            ),
+            deleteTodo: builder.mutation(
+                {
+                    query: (id) => ({
+                        url: `/${id}`,
+                        method: 'DELETE'
+                    }),
+                    invalidatesTags: ['TODOS'] // invalidiamo tutta la lista
+                }
+            ),
+            addTodo: builder.mutation(
+                {
+                    query: (list) => ({
+                        url: '',
+                        method: 'POST',
+                        body: list
+                    }),
+                    invalidatesTags: ['TODOS'] // invalidiamo tutta li lista
+                }
+            ),
+            updateTodo: builder.mutation(
+                {
+                    query: ({ id, ...body }) => ({
+                        url: `/${id}`,
+                        method: 'PATCH',
+                        body
+                    }),
+                    invalidatesTags: ['TODOS'] // (result, error, id) => result.map( ele => {type: 'LIST', id: id})
+                }
+            ),
+        }
+    ),
+})
+
+
+
+// Export hooks for usage in functional components, which are
+// auto-generated based on the defined endpoints
+export const { 
+    useGetTodosQuery,
+    useDeleteTodoMutation,
+    useAddTodoMutation,
+    useUpdateTodoMutation
+} = todosApi;
+
+/*
+
+
 import { TODO_URL, FILTER_URL } from '.././config';
     
 export const getTodos = () => {
@@ -55,4 +126,4 @@ export const changeCopleted = todo => {
             body: JSON.stringify(todo)
         } 
     ).then( res => res.json() ).then( res => res );
-}
+}*/

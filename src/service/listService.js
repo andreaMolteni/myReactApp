@@ -28,7 +28,7 @@ export const listsApi = createApi({
                         url: `/${id}`,
                         method: 'DELETE'
                     }),
-                    invalidatesTags: ['LIST'] // invalidiamo tutta lalista
+                    invalidatesTags: ['LIST'] // invalidiamo tutta la lista
                 }
             ),
             addList: builder.mutation(

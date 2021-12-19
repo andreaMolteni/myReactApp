@@ -8,32 +8,37 @@ export default function Lists() {
     const {
         data: lists = [],
         error,
-        refetch: reloadLists,
+        // refetch: reloadLists, // serve per eseguire il reload di una lista dopo iìun aggiornamento (ora utilizzo i tag nella query)
         isFetching } = useGetListsQuery();
 
     const [removeList, {
         isLoading: isDeleting,
-        isSuccess,
-        error: deleteError,
-        isError
+        isSuccess: isDeleted,
+        error: deleteError
     }] = useDeleteListMutation();
 
     useEffect(() => {
         if (error) {
             console.log(error);
         }
-
         if (isFetching) {
-            console.log('is fetching...');
+            console.log('is fetching lists...');
         }
-
         if (!isFetching) {
-            console.log('close fetching');
+            console.log('close fetching lists');
         }
-
+        if (isDeleting) {
+            console.log('is deleting a list...');
+        }
+        if (isDeleted) {
+            console.log('The list is deleted...');
+        }
+        if (deleteError) {
+            console.log(deleteError);
+        }
         return () => {
         }
-    }, [error, isFetching])
+    }, [error, isFetching, isDeleting, isDeleted, deleteError ])
 
     const manageListRemotion = id => {
         removeList(id).unwrap().then(() => {
@@ -46,7 +51,7 @@ export default function Lists() {
 
     return <ul className="list-group list-group-flush">
         {lists.map(list => <List
-            onRemoveList={id => manageListRemotion(id)}
+            onRemoveList={id => {manageListRemotion(id)}}
             listItem={list}
             key={list.id}
         />)}
